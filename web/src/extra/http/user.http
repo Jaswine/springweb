@@ -1,0 +1,9 @@
+#Spring-web学习项目
+
+
+###
+GET http://{{host}}:{{port}}/{{path}}/user/王远志
+Content-Type: application/json
+Accept-Charset: utf-8
+
+###
