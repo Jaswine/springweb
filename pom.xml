@@ -32,6 +32,7 @@
         <log4j2.version>2.2</log4j2.version>
         <spring.core.version>4.3.21.RELEASE</spring.core.version>
         <spring.mvc.version>4.3.21.RELEASE</spring.mvc.version>
+        <jackson.version>2.9.8</jackson.version>
 
     </properties>
 
@@ -67,6 +68,21 @@
                 <artifactId>spring-webmvc</artifactId>
                 <version>${spring.mvc.version}</version>
             </dependency>
+
+            <!-- jackson-core -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <!-- jackson-databind -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+
 
             <!-- servlet-api -->
             <dependency>

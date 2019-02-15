@@ -4,12 +4,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.web.Log4jServletContextListener;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.util.IntrospectorCleanupListener;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
 /**
- * 配置Listerner
+ * 配置Listener
  * @author Jaswine
  */
 @Order(12)
@@ -20,6 +21,7 @@ public class AppListenerInitializerConfig implements WebApplicationInitializer {
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		log.info("配置Listener");
 		registerLogListener(servletContext);
+		registerMemeryLeakListener(servletContext);
 	}
 
 	/**
@@ -32,5 +34,15 @@ public class AppListenerInitializerConfig implements WebApplicationInitializer {
 		servletContext.addListener(Log4jServletContextListener.class);
 
 		log.info("配置日志监听");
+	}
+
+	/**
+	 * 内存泄漏监听
+	 * @param servletContext servlet上下文
+	 */
+	private void registerMemeryLeakListener(ServletContext servletContext){
+		servletContext.addListener(IntrospectorCleanupListener.class);
+
+		log.info("配置内存泄漏监听");
 	}
 }
